@@ -1,0 +1,2 @@
+export SOCKSCONF="${XDG_CONFIG_HOME:-${HOME}/.config}/dante/socks.conf"
+export SOCKS_DIRECTROUTE_FALLBACK="yes"

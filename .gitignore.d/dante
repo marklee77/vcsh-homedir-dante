@@ -1,0 +1,12 @@
+*
+!.config
+!.config/dante
+!.config/dante/*
+!.config/mr
+!.config/mr/config.d
+!.config/mr/config.d/dante
+!.config/zsh
+!.config/zsh/profile.d
+!.config/zsh/profile.d/dante
+!.gitignore.d
+!.gitignore.d/dante

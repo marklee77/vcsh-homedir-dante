@@ -8,7 +8,7 @@ function FindProxyForURL(url, host) {
         return "SOCKS5 localhost:9060; DIRECT";
     }
 
-    if (shExpMatch(host, "*.doc.ic.ac.uk")) {
+    if (shExpMatch(host, "*.doc.ic.ac.uk") || shExpMatch(host, "*.imperial.ac.uk")) {
         return "SOCKS5 localhost:9070; DIRECT";
     }
     

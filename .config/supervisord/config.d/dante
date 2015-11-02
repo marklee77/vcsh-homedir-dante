@@ -3,5 +3,5 @@ command=micro-inetd 9070 inetd-ssh-proxy docgate 9071
 autorestart=true
 
 [program:g5k-proxy]
-command=micro-inetd 9060 inetd-ssh-proxy g5k 9061
+command=micro-inetd 9060 ~/.local/bin/inetd-ssh-proxy g5k 9061
 autorestart=true

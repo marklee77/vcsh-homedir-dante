@@ -1,5 +1,5 @@
 [program:docgate-proxy]
-command=micro-inetd 9070 inetd-ssh-proxy docgate 9071
+command=micro-inetd 9070 /home/mark/.local/bin/inetd-ssh-proxy docgate 9071
 autorestart=true
 
 [program:g5k-proxy]

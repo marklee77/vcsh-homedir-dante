@@ -1,5 +1,10 @@
 #!/bin/bash
 HOST=$1
 PORT=$2
-nc -zw1 localhost ${PORT} || ssh -D ${PORT} -N -o ExitOnForwardFailure=yes -f ${HOST}
+if ! nc -zw1 localhost ${PORT}; then 
+    if ! ssh -O check ${HOST}; then
+        ssh -MNn -o ExitOnForwardFailure=yes ${HOST}
+    fi
+    ssh -O forward -D ${PORT} ${HOST}
+fi
 nc -w3 localhost ${PORT}

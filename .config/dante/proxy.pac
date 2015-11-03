@@ -11,6 +11,10 @@ function FindProxyForURL(url, host) {
     if (shExpMatch(host, "*.doc.ic.ac.uk") || shExpMatch(host, "*.imperial.ac.uk")) {
         return "SOCKS5 localhost:9070; DIRECT";
     }
+
+    if (shExpMatch(url, "ftp://*")) {
+        return "DIRECT"
+    }
     
     return "PROXY localhost:3128; DIRECT";
 }

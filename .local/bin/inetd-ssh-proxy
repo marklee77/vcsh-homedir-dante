@@ -1,6 +1,7 @@
 #!/bin/bash
 HOST=$1
 PORT=$2
+
 if ! nc -zw1 localhost ${PORT}; then 
     if ssh -O check ${HOST}; then
         ssh -O forward -D ${PORT} ${HOST}

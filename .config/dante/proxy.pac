@@ -16,10 +16,12 @@ function FindProxyForURL(url, host) {
         return "SOCKS5 localhost:9080; DIRECT";
     }
 
-    if (shEXpMatch(url, "https://*")) {
+    if (shEXpMatch(url, "https:*")) {
         return "DIRECT";
-    } else if (shExpMatch(url, "ftp://*")) {
-        return "SOCKS5 loalhost:9050; DIRECT"
+    } 
+
+    if (shExpMatch(url, "ftp:*")) {
+        return "SOCKS5 loalhost:9050; DIRECT";
     }
     
     return "PROXY localhost:3128; DIRECT";

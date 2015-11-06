@@ -3,8 +3,8 @@ HOST=$1
 PORT=$2
 
 if ! nc -zw1 localhost ${PORT}; then 
-    if ssh -O check ${HOST}; then
-        ssh -O forward -D ${PORT} ${HOST}
+    if ssh -n -O check ${HOST} 2>/dev/null; then
+        ssh -n -O forward -D ${PORT} ${HOST}
     else
         ssh -Nn -o ExitOnForwardFailure=yes -D ${PORT} ${HOST}
     fi

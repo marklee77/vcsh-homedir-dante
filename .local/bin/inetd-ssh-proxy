@@ -1,8 +1,6 @@
 #!/bin/bash
 HOST=$1
 PORT=$2
-echo $PATH >&2
-exit 0
 
 if ! nc -zw1 localhost ${PORT}; then 
     if ssh -O check ${HOST} 2>/dev/null; then

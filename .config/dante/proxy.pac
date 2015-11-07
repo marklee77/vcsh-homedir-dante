@@ -1,5 +1,11 @@
 function FindProxyForURL(url, host) {
 
+    if (dnsDomainIs(host, "localhost") ||
+        isInNet(host, "127.0.0.0", "255.0.0.0") ||
+        isInNet(host, "172.17.0.0", "255.255.0.0")) {
+        return "DIRECT";
+    }
+
     if (dnsDomainIs(host, ".grid5000.fr") || 
         isInNet(host, "10.156.0.0", "255.252.0.0")) {
         return "SOCKS5 localhost:9060; PROXY localhost:3128; DIRECT";

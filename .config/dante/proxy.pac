@@ -6,7 +6,8 @@ function FindProxyForURL(url, host) {
     }
 
     if (dnsDomainIs(host, ".ic.ac.uk") ||
-        dnsDomainIs(host, ".imperial.ac.uk")) {
+        dnsDomainIs(host, ".imperial.ac.uk") ||
+        isInNet(host, "146.169.2.0", "255.255.255.0")) {
         return "SOCKS5 localhost:9070; PROXY localhost:3128; DIRECT";
     }
 
@@ -25,4 +26,5 @@ function FindProxyForURL(url, host) {
     }
     
     return "PROXY localhost:3128; DIRECT";
+
 }

@@ -10,9 +10,7 @@ function FindProxyForURL(url, host) {
         return "SOCKS5 localhost:9070; PROXY localhost:3128; DIRECT";
     }
 
-    if (dnsDomainIs(host, ".stillwell.me") ||
-        dnsDomainIs(host, ".foodnetwork.com") ||
-        dnsDomainIs(host, ".doodle.com")) {
+    if (dnsDomainIs(host, ".stillwell.me")) {
         return "SOCKS5 localhost:9080; DIRECT";
     }
 

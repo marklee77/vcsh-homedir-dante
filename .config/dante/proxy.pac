@@ -23,11 +23,9 @@ function FindProxyForURL(url, host) {
         return "SOCKS5 localhost:9080; DIRECT";
     }
 
-    /*
     if (url.substring(0,6) == "https:") {
         return "DIRECT";
     } 
-    */
 
     if (url.substring(0,4) == "ftp:") {
         return "SOCKS5 loalhost:9050; DIRECT";

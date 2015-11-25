@@ -24,8 +24,7 @@ function FindProxyForURL(url, host) {
     }
 
     if (dnsDomainIs(host, ".onion") ||
-        dnsDomainIs(host, ".i2p") ||
-        dnsDomainIs(host, ".bit")) {
+        dnsDomainIs(host, ".i2p")) {
         return "PROXY localhost:3128; DIRECT";
     }
 

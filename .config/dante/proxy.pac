@@ -23,6 +23,12 @@ function FindProxyForURL(url, host) {
         return "SOCKS5 localhost:9080; DIRECT";
     }
 
+    if (dnsDomainIs(host, ".onion") ||
+        dnsDomainIs(host, ".i2p") ||
+        dnsDomainIs(host, ".bit")) {
+        return "PROXY localhost:3128; DIRECT";
+    }
+
     if (url.substring(0,6) == "https:") {
         return "DIRECT";
     } 

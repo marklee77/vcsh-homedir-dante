@@ -31,7 +31,7 @@ function FindProxyForURL(url, host) {
 
     if (dnsDomainIs(host, ".onion") ||
         dnsDomainIs(host, ".i2p")) {
-        return fallback;
+        return "PROXY localhost:3128; SOCKS5 localhost:9050";
     }
 
     if (url.substring(0,6) == "https:") {

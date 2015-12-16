@@ -1,15 +1,20 @@
 function FindProxyForURL(url, host) {
 
-    var fallback = "PROXY localhost:3128; DIRECT";
+    var fallback = "PROXY localhost:3128; DIRECT;";
+
+    // DIRECT overrides
+    if (dnsDomainIs(host, "ictmmweb.cc.ic.ac.uk")) {
+        return "DIRECT;";
+    }
 
     if (url.substring(0,4) == "ftp:") {
-        fallback = "SOCKS5 localhost:9050; DIRECT";
+        fallback = "SOCKS5 localhost:9050; DIRECT;";
     }
 
     if (dnsDomainIs(host, "localhost") ||
         isInNet(host, "127.0.0.0", "255.0.0.0") ||
         isInNet(host, "172.17.0.0", "255.255.0.0")) {
-        return "DIRECT";
+        return "DIRECT;";
     }
 
     if (dnsDomainIs(host, ".grid5000.fr") || 
@@ -28,7 +33,7 @@ function FindProxyForURL(url, host) {
 
     if (dnsDomainIs(host, ".stillwell.me") ||
         dnsDomainIs(host, ".fortawesome.org")) {
-        return "SOCKS5 localhost:9080; DIRECT";
+        return "SOCKS5 localhost:9080; DIRECT;";
     }
 
     if (dnsDomainIs(host, ".onion") ||
@@ -37,7 +42,7 @@ function FindProxyForURL(url, host) {
     }
 
     if (url.substring(0,6) == "https:") {
-        return "DIRECT";
+        return "DIRECT;";
     } 
     
     return fallback;

@@ -20,7 +20,8 @@ function FindProxyForURL(url, host) {
     if (dnsDomainIs(host, ".ic.ac.uk") ||
         dnsDomainIs(host, ".imperial.ac.uk") ||
         dnsDomainIs(host, ".harness-project.eu") ||
-        dnsDomainIs(host, ".doodle.com") ||
+        dnsDomainIs(host, "doodle.com") ||
+        dnsDomainIs(host, "github.com") ||
         isInNet(host, "146.169.2.0", "255.255.255.0")) {
         return "SOCKS5 localhost:9070; " + fallback;
     }

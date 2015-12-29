@@ -25,6 +25,7 @@ function FindProxyForURL(url, host) {
     if (dnsDomainIs(host, ".ic.ac.uk") ||
         dnsDomainIs(host, ".imperial.ac.uk") ||
         dnsDomainIs(host, ".harness-project.eu") ||
+        dnsDomainIs(host, "altonbrown.com") ||
         dnsDomainIs(host, "doodle.com") ||
         dnsDomainIs(host, "github.com") ||
         dnsDomainIs(host, "slideshare.net") ||

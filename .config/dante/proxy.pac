@@ -1,13 +1,11 @@
 function FindProxyForURL(url, host) {
 
-    var fallback = "PROXY localhost:3128; DIRECT;";
-
     if (dnsDomainIs(host, "ictmmweb.cc.ic.ac.uk")) {
         return "DIRECT;";
     }
 
     if (url.substring(0,4) == "ftp:") {
-        fallback = "SOCKS5 localhost:9050; DIRECT;";
+        return "SOCKS5 localhost:9050; DIRECT;";
     }
 
     if (dnsDomainIs(host, "localhost") ||
@@ -18,7 +16,7 @@ function FindProxyForURL(url, host) {
 
     if (dnsDomainIs(host, ".grid5000.fr") || 
         isInNet(host, "10.156.0.0", "255.252.0.0")) {
-        return "SOCKS5 localhost:9060; " + fallback;
+        return "SOCKS5 localhost:9060; DIRECT;";
     }
 
     if (dnsDomainIs(host, ".ic.ac.uk") ||
@@ -29,7 +27,7 @@ function FindProxyForURL(url, host) {
         dnsDomainIs(host, "github.com") ||
         dnsDomainIs(host, "slideshare.net") ||
         isInNet(host, "146.169.2.0", "255.255.255.0")) {
-        return "SOCKS5 localhost:9070; " + fallback;
+        return "SOCKS5 localhost:9070; DIRECT;";
     }
 
     if (dnsDomainIs(host, ".stillwell.me") ||
@@ -46,6 +44,6 @@ function FindProxyForURL(url, host) {
         return "DIRECT;";
     } 
     
-    return fallback;
+    return "PROXY localhost:3128; DIRECT;";
 
 }

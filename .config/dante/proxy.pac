@@ -2,7 +2,6 @@ function FindProxyForURL(url, host) {
 
     var fallback = "PROXY localhost:3128; DIRECT;";
 
-    // DIRECT overrides
     if (dnsDomainIs(host, "ictmmweb.cc.ic.ac.uk")) {
         return "DIRECT;";
     }
@@ -40,7 +39,7 @@ function FindProxyForURL(url, host) {
 
     if (dnsDomainIs(host, ".onion") ||
         dnsDomainIs(host, ".i2p")) {
-        return "PROXY localhost:3128; SOCKS5 localhost:9050";
+        return "PROXY localhost:3128;";
     }
 
     if (url.substring(0,6) == "https:") {

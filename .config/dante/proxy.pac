@@ -5,7 +5,7 @@ function FindProxyForURL(url, host) {
     }
 
     if (url.substring(0,4) == "ftp:") {
-        return "SOCKS5 localhost:9050; DIRECT;";
+        return "DIRECT;";
     }
 
     if (dnsDomainIs(host, "localhost") ||
@@ -21,11 +21,6 @@ function FindProxyForURL(url, host) {
 
     if (dnsDomainIs(host, ".ic.ac.uk") ||
         dnsDomainIs(host, ".imperial.ac.uk") ||
-        dnsDomainIs(host, ".harness-project.eu") ||
-        dnsDomainIs(host, "altonbrown.com") ||
-        dnsDomainIs(host, "doodle.com") ||
-        dnsDomainIs(host, "github.com") ||
-        dnsDomainIs(host, "slideshare.net") ||
         isInNet(host, "146.169.2.0", "255.255.255.0")) {
         return "SOCKS5 localhost:9070; DIRECT;";
     }
@@ -35,15 +30,12 @@ function FindProxyForURL(url, host) {
         return "SOCKS5 localhost:9080; DIRECT;";
     }
 
+    // FIXME: set up i2p
     if (dnsDomainIs(host, ".onion") ||
         dnsDomainIs(host, ".i2p")) {
-        return "PROXY localhost:3128;";
+        return "PROXY localhost:9050;";
     }
 
-    if (url.substring(0,6) == "https:") {
-        return "DIRECT;";
-    } 
-    
-    return "PROXY localhost:3128; DIRECT;";
+    return "DIRECT;";
 
 }

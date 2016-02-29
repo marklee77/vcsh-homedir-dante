@@ -1,11 +1,11 @@
 [program:squid-proxy]
-command=mini-inetd 127.0.0.1:9080 /home/mark/.local/bin/inetd-ssh-proxy inetd-ssh-proxy squid 9081
+command=mini-inetd 127.0.0.1:9080 /home/marklee/.local/bin/inetd-ssh-proxy inetd-ssh-proxy squid 9081
 autorestart=true
 
 [program:docgate-proxy]
-command=mini-inetd 127.0.0.1:9070 /home/mark/.local/bin/inetd-ssh-proxy inetd-ssh-proxy docgate 9071
+command=mini-inetd 127.0.0.1:9070 /home/marklee/.local/bin/inetd-ssh-proxy inetd-ssh-proxy docgate 9071
 autorestart=true
 
 [program:g5k-proxy]
-command=mini-inetd 127.0.0.1:9060 /home/mark/.local/bin/inetd-ssh-proxy inetd-ssh-proxy g5k 9061
+command=mini-inetd 127.0.0.1:9060 /home/marklee/.local/bin/inetd-ssh-proxy inetd-ssh-proxy g5k 9061
 autorestart=true

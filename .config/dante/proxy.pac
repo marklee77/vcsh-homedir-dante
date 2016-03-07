@@ -29,11 +29,6 @@ function FindProxyForURL(url, host) {
         return "SOCKS5 localhost:9070; DIRECT;";
     }
 
-    if (dnsDomainIs(host, ".stillwell.me") ||
-        dnsDomainIs(host, ".fortawesome.org")) {
-        return "SOCKS5 localhost:9080; DIRECT;";
-    }
-
     // FIXME: set up i2p
     if (dnsDomainIs(host, ".onion") ||
         dnsDomainIs(host, ".i2p")) {
